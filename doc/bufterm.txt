@@ -1,0 +1,41 @@
+bufterm.txt	bufterm change: October 22 2020
+BUFTERM - TABLE OF CONTENTS                                          *bufterm*
+==============================================================================
+
+  Installation
+  Configuration
+  Commands
+
+==============================================================================
+Installation                                            *bufterm-installation*
+
+<Install with vim-plug>______________________________________________________~
+
+>
+    Plug 'itmecho/bufterm.nvim'
+<
+
+==============================================================================
+Configuration                                          *bufterm-configuration*
+
+* Set the shell to run when creating a new terminal
+>
+  let g:bufterm_shell = $SHELL
+<
+
+* Clear the terminal before executing the given command
+>
+  let g:bufterm_clear_on_exec = 1
+<
+
+
+==============================================================================
+Commands                                                    *bufterm-commands*
+
+:BufTermToggle                                                *:BufTermToggle*
+  Toggles the terminal buffer. If you are in the terminal
+  buffer, this will jump back to the previous buffer
+
+:BufTermExec {command}                                          *:BufTermExec*
+  Jumps to the terminal buffer and executes the given command.
+  If the terminal doesn't exist yet, it will be created.
