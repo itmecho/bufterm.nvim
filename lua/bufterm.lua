@@ -43,6 +43,9 @@ local function exec(cmd)
 
     api.nvim_set_current_buf(bufh)
     api.nvim_command('startinsert')
+    if vim.g['bufterm_clear_on_exec'] == 1 then
+        vim.fn.chansend(job_id, "clear\n")
+    end
     vim.fn.chansend(job_id, cmd .. "\n")
 end
 
