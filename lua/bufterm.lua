@@ -37,11 +37,13 @@ end
 local function exec(cmd)
     if bufh == nil or api.nvim_buf_is_valid(bufh) == false then
         create_terminal_buffer()
+        -- Sending the command in this new terminal can result in the command
+        -- appearing before the prompt when the prompt takes a while to start up
     end
 
     api.nvim_set_current_buf(bufh)
     api.nvim_command('startinsert')
-    api.chansend(job_id, cmd .. "\n")
+    vim.fn.chansend(job_id, cmd .. "\n")
 end
 
 return {
