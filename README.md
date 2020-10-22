@@ -10,6 +10,12 @@ This was created to learn more about neovim plugins and lua after watching [TheP
 | `BufTermToggle` | Toggles the terminal buffer. When called from the terminal buffer, it will jump back to the previous buffer. | `:BufTermToggle` |
 | `BufTermExec` | Jump to the terminal buffer and execute a command. If the terminal doesn't exist, a new one will be created. | `:BufTermExec cargo test` |
 
+## Configuration
+| Setting | Description | Default |
+|---|---|---|
+| `g:bufterm_shell` | The shell that will be used when creating a new terminal | `$SHELL` |
+| `g:bufterm_clear_on_exec` | Controls whether or not to clear the screen before running the command passed to `BufTermExec` | `1` |
+
 ## Example keybindings
 ```vim
 " Terminal Toggle
