@@ -7,11 +7,10 @@ local function create_terminal_buffer()
     api.nvim_set_current_buf(bufh)
     vim.fn.termopen(vim.g["bufterm_shell"])
     job_id = api.nvim_buf_get_var(bufh, "terminal_job_id")
-    api.nvim_buf_set_option(bufh, 'buflisted', false)
 
-    -- Can't find a way to set this only in the terminal buffer using the API
-    -- nvim_buf_set_option says that rnu, nu, and signcolumn are invalid commands
-    api.nvim_command('setlocal nornu nonu signcolumn=no')
+    api.nvim_buf_set_option(bufh, 'buflisted', false)
+    api.nvim_win_set_option(0, 'relativenumber', false)
+    api.nvim_win_set_option(0, 'number', false)
 end
 
 local function toggle()
